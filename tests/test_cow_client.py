@@ -5,16 +5,8 @@ import pytest
 from eth_account.signers.local import LocalAccount
 from web3 import Web3
 
-from cowswap_python_client.cow_client import (
-    CowClient,
-    CowServer,
-)
-from cowswap_python_client.models import (
-    OrderKind,
-    OrderStatus,
-    QuoteInput,
-    QuoteOutput,
-)
+from cowswap_python_client.cow_client import CowClient, CowServer
+from cowswap_python_client.models import OrderKind, OrderStatus, QuoteInput, QuoteOutput
 from cowswap_python_client.utils import check_not_none
 
 wxDAI = Web3.to_checksum_address("0xe91d153e0b41518a2ce8dd3d7944fa863463a97d")
@@ -64,7 +56,6 @@ def test_get_order_status(test_mock_client: CowClient) -> None:
     order_uid = "0x2959dfad69782fa300d8e2897b7b5a340690515e45fcc529138ebe249faa2d48a7e93f5a0e718bddc654e525ea668c64fd57288266b2a01f"
     order_status = test_mock_client.get_order_status(order_uid)
     assert order_status == OrderStatus.CANCELLED
-
 
 
 def test_post_order(

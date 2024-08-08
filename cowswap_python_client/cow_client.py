@@ -7,13 +7,13 @@ from eth_typing import ChecksumAddress
 from loguru import logger
 from web3 import Web3
 
-from cowswap_python_client.gtypes import Wei
 from cowswap_python_client.encoding import (
     DOMAIN,
     MESSAGE_TYPES,
     MESSAGE_TYPES_CANCELLATION,
     RELAYER_ADDRESSES,
 )
+from cowswap_python_client.gtypes import Wei
 from cowswap_python_client.models import (
     CowServer,
     OrderKind,
@@ -75,7 +75,6 @@ class CowClient:
         }
         return order_data
 
-    
     def post_order(self, quote: QuoteOutput, web3: Web3 | None = None) -> str:
         # Note that allowance is not checked - please make sure you have enough allowance to make the order.
         order_data = self.build_order_with_fee_and_sell_amounts(quote)
