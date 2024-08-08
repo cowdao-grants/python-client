@@ -11,7 +11,6 @@ from cowswap_python_client.encoding import (
     DOMAIN,
     MESSAGE_TYPES,
     MESSAGE_TYPES_CANCELLATION,
-    RELAYER_ADDRESSES,
 )
 from cowswap_python_client.gtypes import Wei
 from cowswap_python_client.models import (

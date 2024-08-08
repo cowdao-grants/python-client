@@ -1,4 +1,4 @@
-from typing import Any, NoReturn, Optional, Type, TypeVar, cast
+from typing import NoReturn, Optional, Type, TypeVar
 
 T = TypeVar("T")
 
