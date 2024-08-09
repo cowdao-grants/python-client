@@ -78,7 +78,7 @@ def fake_build_quote(quote: QuoteOutput) -> dict[str, Any]:
     new_sell_amount = int(quote.sell_amount) + int(quote.fee_amount)
     quote.sell_amount = str(new_sell_amount // 2)
     quote.fee_amount = "0"
-    quote_dict = quote.dict(by_alias=True, exclude_none=True)
+    quote_dict = quote.model_dump(by_alias=True, exclude_none=True)
     return quote_dict
 
 

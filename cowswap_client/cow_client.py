@@ -53,7 +53,7 @@ class CowClient:
             raise
 
     def post_quote(self, quote: QuoteInput) -> QuoteOutput:
-        quote_dict = quote.dict(by_alias=True, exclude_none=True)
+        quote_dict = quote.model_dump(by_alias=True, exclude_none=True)
         r = requests.post(f"{self.api_url.value}/api/v1/quote", json=quote_dict)
 
         self._if_error_log_and_raise(r)
