@@ -1,6 +1,6 @@
 from eth_typing import ChecksumAddress
 from web3 import Web3
-from cowswap_python_client.gtypes import ChainID
+from cowswap_client.gtypes import ChainID
 
 MESSAGE_TYPES_CANCELLATION = {
     "OrderCancellations": [

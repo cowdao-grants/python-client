@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "cowswap-python-client"
-version = "0.1.1"
+name = "cowswap-client"
+version = "0.1.2"
 description = ""
 authors = ["gabrielfior <fior.gbm@gmail.com>"]
 readme = "README.md"

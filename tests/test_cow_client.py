@@ -5,9 +5,9 @@ import pytest
 from eth_account.signers.local import LocalAccount
 from web3 import Web3
 
-from cowswap_python_client.cow_client import CowClient, CowServer
-from cowswap_python_client.models import OrderKind, OrderStatus, QuoteInput, QuoteOutput
-from cowswap_python_client.utils import check_not_none
+from cowswap_client.cow_client import CowClient, CowServer
+from cowswap_client.models import OrderKind, OrderStatus, QuoteInput, QuoteOutput
+from cowswap_client.utils import check_not_none
 
 wxDAI = Web3.to_checksum_address("0xe91d153e0b41518a2ce8dd3d7944fa863463a97d")
 COW = Web3.to_checksum_address("0x177127622c4A00F3d409B75571e12cB3c8973d3c")
@@ -62,7 +62,7 @@ def test_post_order(
     test_mock_client: CowClient, test_quote: QuoteInput, id_holder_fixture: IdHolder
 ) -> None:
     with patch(
-        "cowswap_python_client.cow_client.CowClient.build_order_with_fee_and_sell_amounts",
+        "cowswap_client.cow_client.CowClient.build_order_with_fee_and_sell_amounts",
         Mock(side_effect=fake_build_quote),
     ):
         quote = test_mock_client.post_quote(test_quote)

@@ -5,8 +5,8 @@ from eth_account import Account
 from eth_account.signers.local import LocalAccount
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from cowswap_python_client.gtypes import PrivateKey
-from cowswap_python_client.utils import check_not_none
+from cowswap_client.gtypes import PrivateKey
+from cowswap_client.utils import check_not_none
 
 
 class CowswapKey(BaseSettings):

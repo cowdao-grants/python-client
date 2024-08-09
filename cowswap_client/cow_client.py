@@ -7,13 +7,13 @@ from eth_typing import ChecksumAddress
 from loguru import logger
 from web3 import Web3
 
-from cowswap_python_client.encoding import (
+from cowswap_client.encoding import (
     DOMAIN,
     MESSAGE_TYPES,
     MESSAGE_TYPES_CANCELLATION,
 )
-from cowswap_python_client.gtypes import Wei
-from cowswap_python_client.models import (
+from cowswap_client.gtypes import Wei
+from cowswap_client.models import (
     CowServer,
     OrderKind,
     OrderStatus,
@@ -52,9 +52,9 @@ class CowClient:
     def _if_error_log_and_raise(r: requests.Response) -> None:
         try:
             r.raise_for_status()
-        except:
-            logger.error(f"Error occured on response: {r.text}")
-            r.raise_for_status()
+        except Exception as e:
+            logger.error(f"Error occured on response: {r.text}, Exception - {e}")
+            raise
 
     def post_quote(self, quote: QuoteInput) -> QuoteOutput:
         quote_dict = quote.dict(by_alias=True, exclude_none=True)
