@@ -9,3 +9,4 @@ from web3.types import (  # noqa: F401  # Import for the sake of easy importing 
 )
 
 PrivateKey = NewType("PrivateKey", SecretStr)
+ChainID = NewType("ChainID", int)

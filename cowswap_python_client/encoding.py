@@ -1,5 +1,6 @@
 from eth_typing import ChecksumAddress
 from web3 import Web3
+from cowswap_python_client.gtypes import ChainID
 
 MESSAGE_TYPES_CANCELLATION = {
     "OrderCancellations": [
@@ -34,6 +35,6 @@ DOMAIN = {
 }
 
 # Relayer address for allowance purposes
-RELAYER_ADDRESSES: dict[int, ChecksumAddress] = {
-    100: Web3.to_checksum_address("0xC92E8bdf79f0507f65a392b0ab4667716BFE0110")
+RELAYER_ADDRESSES: dict[ChainID, ChecksumAddress] = {
+    ChainID(100): Web3.to_checksum_address("0xC92E8bdf79f0507f65a392b0ab4667716BFE0110"), # Gnosis
 }

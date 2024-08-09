@@ -65,14 +65,10 @@ class CowClient:
 
     @staticmethod
     def build_order_with_fee_and_sell_amounts(quote: QuoteOutput) -> dict[str, Any]:
-        quote_dict = quote.dict(by_alias=True, exclude_none=True)
-        new_sell_amount = int(quote.sell_amount) + int(quote.fee_amount)
-        order_data = {
-            **quote_dict,
-            "sellAmount": str(new_sell_amount),
-            "feeAmount": "0",
-        }
-        return order_data
+        quote.sell_amount = str(int(quote.sell_amount) + int(quote.fee_amount))
+        quote.fee_amount = '0'
+        quote_dict = quote.model_dump(by_alias=True, exclude_none=True)
+        return quote_dict
 
     def post_order(self, quote: QuoteOutput, web3: Web3 | None = None) -> str:
         # Note that allowance is not checked - please make sure you have enough allowance to make the order.
