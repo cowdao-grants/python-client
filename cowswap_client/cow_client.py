@@ -7,11 +7,7 @@ from eth_typing import ChecksumAddress
 from loguru import logger
 from web3 import Web3
 
-from cowswap_client.encoding import (
-    DOMAIN,
-    MESSAGE_TYPES,
-    MESSAGE_TYPES_CANCELLATION,
-)
+from cowswap_client.encoding import DOMAIN, MESSAGE_TYPES, MESSAGE_TYPES_CANCELLATION
 from cowswap_client.gtypes import Wei
 from cowswap_client.models import (
     CowServer,
@@ -66,7 +62,7 @@ class CowClient:
     @staticmethod
     def build_order_with_fee_and_sell_amounts(quote: QuoteOutput) -> dict[str, Any]:
         quote.sell_amount = str(int(quote.sell_amount) + int(quote.fee_amount))
-        quote.fee_amount = '0'
+        quote.fee_amount = "0"
         quote_dict = quote.model_dump(by_alias=True, exclude_none=True)
         return quote_dict
 
