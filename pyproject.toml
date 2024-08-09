@@ -1,16 +1,26 @@
 [tool.poetry]
-name = "cowswap-python-client"
-version = "0.1.1"
+name = "cowswap-client"
+version = "0.1.2"
 description = ""
 authors = ["gabrielfior <fior.gbm@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
-
+loguru = "^0.7.2"
+eth-account = "^0.11.2"
+web3 = "^6.15.1"
+pydantic = "^2.6.1"
+eth-typing = "^3.0.0"
+pydantic-settings = "^2.1.0"
+isort = "^5.13.2"
+autoflake = "^2.2.1"
+types-requests = "^2.31.0.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.2"
+pytest = "*"
+mypy = "^1.9.0"
+black = "^23.12.1"
 
 [build-system]
 requires = ["poetry-core"]
